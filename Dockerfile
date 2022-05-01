@@ -1,14 +1,18 @@
 # Stage 1 - Building app
 FROM node:16-alpine AS builder
+EXPOSE 3000
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install 
+RUN yarn install
 
 COPY . ./
-RUN npm run build
+
+RUN yarn run build
+
+CMD ["yarn", "serve"]
 
 # Stage 2 - Set up build files on Nginx
 FROM nginx:alpine AS production-build

@@ -2,7 +2,6 @@ import './main.css';
 
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App';
@@ -45,5 +44,6 @@ render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>, container
+  </StrictMode>,
+  container
 );

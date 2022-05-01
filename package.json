@@ -8,7 +8,7 @@
     "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
     "lint": "eslint . --ext .ts,.tsx --fix --ignore-path .gitignore",
     "serve": "yarn run build && vite preview --port 3000",
-    "test": "yarn run lint && yarn run typecheck && yarn run test:unit:ci && yarn run test:e2e:ci",
+    "test": "yarn lint && yarn typecheck && yarn test:unit:ci",
     "test:e2e": "start-server-and-test serve http://127.0.0.1:3000/ 'cypress open'",
     "test:e2e:ci": "start-server-and-test serve http://127.0.0.1:3000/ 'cypress run'",
     "test:unit": "jest --watch",
@@ -27,6 +27,7 @@
     "package.json": "npx sort-package-json"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "react": "^17",
     "react-dom": "^17",
     "react-router-dom": "^6.3.0"

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
 import { PropsInterface } from '../../interfaces';
@@ -8,9 +9,8 @@ export function CarsProvider({ children }: PropsInterface) {
   const [cars, setCars] = useState([]);
 
   async function getCars() {
-    const response = await fetch(`/api/cars`);
-    const cars = await response.json();
-    setCars(cars);
+    const response = await axios.get('/api/cars');
+    setCars(response.data);
   }
 
   useEffect(() => {

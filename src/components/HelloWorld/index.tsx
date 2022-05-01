@@ -6,7 +6,7 @@ interface HelloWorldProps {
   msg: string;
 }
 
-export default function HelloWorld(props: HelloWorldProps) {
+export function HelloWorld(props: HelloWorldProps) {
   const [count, setCount] = useState(0);
 
   const increment = () => setCount(prevCount => prevCount + 1);

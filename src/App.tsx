@@ -1,13 +1,18 @@
-import Logo from "@/assets/logo.png";
-import HelloWorld from "@/components/HelloWorld/HelloWorld";
+import { Link, Outlet } from 'react-router-dom';
 
-import styles from "./App.module.css";
+import Logo from '@/assets/logo.png';
+
+import styles from './App.module.css';
 
 export default function App() {
   return (
     <main className={styles.main}>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/cars">Cars</Link>
+      </nav>
+      <Outlet />
       <img className={styles.logo} alt="React logo" width="400px" src={Logo} />
-      <HelloWorld msg="Hello React + TypeScript + Vite" />
     </main>
   );
 }

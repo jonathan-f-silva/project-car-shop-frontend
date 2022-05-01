@@ -8,6 +8,7 @@
     "format": "prettier . --write --ignore-path .gitignore && git update-index --again",
     "lint": "eslint . --ext .ts,.tsx --fix --ignore-path .gitignore",
     "serve": "yarn run build && vite preview --port 3000",
+    "test": "yarn run lint && yarn run typecheck && yarn run test:unit:ci && yarn run test:e2e:ci",
     "test:e2e": "start-server-and-test serve http://127.0.0.1:3000/ 'cypress open'",
     "test:e2e:ci": "start-server-and-test serve http://127.0.0.1:3000/ 'cypress run'",
     "test:unit": "jest --watch",
@@ -26,16 +27,16 @@
     "package.json": "npx sort-package-json"
   },
   "dependencies": {
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^17",
+    "react-dom": "^17",
     "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@cypress/vite-dev-server": "^2.2.2",
-    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
-    "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@testing-library/user-event": "^14.1.1",
     "@types/jest": "^27.4.1",
     "@types/node": "^17.0.22",
     "@types/react": "^18.0.8",

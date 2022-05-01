@@ -1,7 +1,8 @@
 import './main.css';
 
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { render } from 'react-dom';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App';
@@ -9,9 +10,8 @@ import { HelloWorld } from './components';
 import { Cars } from './pages';
 
 const container = document.getElementById('root');
-const root = createRoot(container as HTMLDivElement);
 
-root.render(
+render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
@@ -45,5 +45,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>, container
 );

@@ -1,9 +1,9 @@
-import legacy from "@vitejs/plugin-legacy";
-import reactRefresh from "@vitejs/plugin-react-refresh";
-import { fileURLToPath } from 'url'
-import { defineConfig } from "vite";
+import legacy from '@vitejs/plugin-legacy';
+import reactRefresh from '@vitejs/plugin-react-refresh';
+import { fileURLToPath } from 'url';
+import { defineConfig } from 'vite';
 
-const BACKEND_HOST = process.env.BACKEND_HOST || "localhost";
+const BACKEND_HOST = process.env.BACKEND_HOST || 'localhost';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,15 +14,15 @@ export default defineConfig({
   resolve: {
     alias: {
       // for TypeScript path alias import like : @/x/y/z
-      "@": fileURLToPath(new URL('./src', import.meta.url))
-    }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   server: {
     proxy: {
-      "/api": {
+      '/api': {
         target: `http://${BACKEND_HOST}:8080`,
         secure: false,
-        rewrite: path => path.replace(/^\/api/, ""),
+        rewrite: path => path.replace(/^\/api/, ''),
       },
     },
   },

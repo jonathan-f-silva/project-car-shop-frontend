@@ -1,10 +1,10 @@
-import { CarList } from '@/components';
+import { VehicleList } from '@/components';
 import { CarsProvider } from '@/contexts';
 
-export function Cars() {
+export function CarList() {
   return (
     <CarsProvider>
-      <CarList />
+      <VehicleList />
     </CarsProvider>
   );
 }

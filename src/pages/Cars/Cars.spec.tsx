@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 
-import { CarList, carsMock } from '.';
+import { Cars, carsMock } from '.';
 
 describe('Página Cars', () => {
   axios.get = jest.fn().mockResolvedValue({ data: carsMock });
 
   describe('ao carregar a página', () => {
     test('mostra os elementos esperados', async () => {
-      render(<CarList />);
+      render(<Cars />);
       await screen.findByText(carsMock[0].model);
 
       const title = screen.getByText('Carros');

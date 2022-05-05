@@ -7,7 +7,7 @@ interface ICarsContext {
   cars: Car[];
 }
 
-export const CarsContext = createContext({} as ICarsContext);
+export const CarsContext = createContext<ICarsContext>({ cars: [] });
 
 export function CarsProvider({ children }: PropsInterface) {
   const [cars, setCars] = useState([]);

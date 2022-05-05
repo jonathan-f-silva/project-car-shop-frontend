@@ -1,18 +1,13 @@
-import { Link, Outlet } from 'react-router-dom';
-
-import Logo from '@/assets/logo.png';
+import { Outlet } from 'react-router-dom';
 
 import styles from './App.module.css';
+import { NavBar } from './components';
 
 export default function App() {
   return (
     <main className={styles.main}>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/cars">Cars</Link>
-      </nav>
+      <NavBar />
       <Outlet />
-      <img className={styles.logo} alt="React logo" width="400px" src={Logo} />
     </main>
   );
 }

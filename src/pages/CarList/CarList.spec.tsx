@@ -3,8 +3,7 @@
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 
-import { CarList } from '.';
-import { carsMock } from './CarsList.mocks';
+import { CarList, carsMock } from '.';
 
 describe('Página Cars', () => {
   axios.get = jest.fn().mockResolvedValue({ data: carsMock });

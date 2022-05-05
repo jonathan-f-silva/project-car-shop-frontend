@@ -18,5 +18,5 @@ jobs:
       - name: Executando linter
         run: yarn lint
 
-      - name: Executando testes unitários
-        run: yarn test
+      - name: Executando testes
+        run: yarn test:all

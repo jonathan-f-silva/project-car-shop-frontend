@@ -4,51 +4,25 @@ import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 
 import { CarList } from '.';
+import { carsMock } from './CarsList.mocks';
 
 describe('Página Cars', () => {
-  const setup = () => {
-    render(<CarList />);
-  };
-
-  axios.get = jest.fn().mockResolvedValue({
-    data: [
-      {
-        model: 'Fiesta',
-        year: 2011,
-        color: 'Azul',
-        buyValue: 10000,
-        doorsQty: 4,
-        seatsQty: 5,
-      },
-      {
-        model: 'Gol',
-        year: 2012,
-        color: 'Prata',
-        buyValue: 15000,
-        doorsQty: 4,
-        seatsQty: 5,
-      },
-    ],
-  });
-
-  beforeEach(setup);
+  axios.get = jest.fn().mockResolvedValue({ data: carsMock });
 
   describe('ao carregar a página', () => {
-    test('mostra o título "Carros"', () => {
+    test('mostra os elementos esperados', async () => {
+      render(<CarList />);
+      await screen.findByText(carsMock[0].model);
+
       const title = screen.getByText('Carros');
-      expect(title).toBeInTheDocument();
-    });
-
-    test('mostra o nome dos carros"', async () => {
-      const car1 = await screen.findByText('Fiesta');
-      const car2 = await screen.findByText('Gol');
-      expect(car1).toBeInTheDocument();
-      expect(car2).toBeInTheDocument();
-    });
-
-    test('tem o botão de Adicionar', () => {
       const button = screen.getByText('Adicionar');
+      expect(title).toBeInTheDocument();
       expect(button).toBeInTheDocument();
+
+      carsMock.forEach(({ model }) => {
+        const carModel = screen.getByText(model);
+        expect(carModel).toBeInTheDocument();
+      });
     });
   });
 });

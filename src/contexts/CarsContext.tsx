@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
-import { PropsInterface } from '../../interfaces';
+import { Car, PropsInterface } from '@/interfaces';
 
-export const CarsContext = createContext({});
+interface ICarsContext {
+  cars: Car[];
+}
+
+export const CarsContext = createContext({} as ICarsContext);
 
 export function CarsProvider({ children }: PropsInterface) {
   const [cars, setCars] = useState([]);
@@ -18,8 +22,6 @@ export function CarsProvider({ children }: PropsInterface) {
   }, []);
 
   return (
-    <CarsContext.Provider value={{ cars, setCars }}>
-      {children}
-    </CarsContext.Provider>
+    <CarsContext.Provider value={{ cars }}>{children}</CarsContext.Provider>
   );
 }

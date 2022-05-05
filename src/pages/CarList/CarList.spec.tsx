@@ -1,5 +1,3 @@
-// https://stackoverflow.com/questions/48433783/referenceerror-fetch-is-not-defined
-// import 'cross-fetch/polyfill';
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 

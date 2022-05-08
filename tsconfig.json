@@ -30,7 +30,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "src/*"
+        "src/*",
+        "src/docs/*"
       ]
     }
   },
@@ -38,6 +39,7 @@
     "vite.config.*",
     "jest.setup.ts",
     "src/**/*",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "src/docs/testIds.ts",
   ]
 }
